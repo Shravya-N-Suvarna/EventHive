@@ -1,0 +1,30 @@
+ [
+    {
+      "id": 1,
+      "title": "React Workshop",
+      "description": "A comprehensive workshop on React.js fundamentals and advanced techniques.",
+      "location": "Virtual",
+      "date": "2024-08-01",
+      "time": "09:00 AM",
+      "image": "./assets/bag23.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Node.js Meetup",
+      "description": "Monthly meetup for Node.js developers to share insights and network.",
+      "location": "City Hall Auditorium",
+      "date": "2024-08-05",
+      "time": "06:00 PM",
+      "image": "./assets/bag23.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Angular Conference",
+      "description": "Annual conference showcasing the latest trends and best practices in Angular development.",
+      "location": "Convention Center",
+      "date": "2024-08-10",
+      "time": "08:30 AM",
+      "image": "./assets/bag23.jpg"
+    }
+  ]
+  
