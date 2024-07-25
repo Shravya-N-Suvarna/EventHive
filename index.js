@@ -6,6 +6,7 @@ import cors from 'cors';
 import userRoute from './route/user.route.js'; // Import the userRoute
 import eventRoute from './route/event.route.js'; // Import the eventRoute
 import adminRoute from './route/admin.route.js';
+import feedbackRoute from './route/feedback.route.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -26,6 +27,7 @@ mongoose.connect(mongoURL)
 app.use('/user', userRoute);
 app.use('/', eventRoute); // Use the eventRoute
 app.use('/admin',adminRoute);
+app.use('/feedback',feedbackRoute)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

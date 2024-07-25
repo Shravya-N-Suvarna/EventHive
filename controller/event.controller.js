@@ -89,6 +89,44 @@ export const getAllEvents = async (req, res) => {
 };
 
 
+
+
+export const getAllRegistrations = async (req, res) => {
+  try {
+    const registrations = await Registration.find().populate('eventId').exec();
+    if (!registrations || registrations.length === 0) {
+      return res.status(404).json({ error: 'No registrations found' });
+    }
+    res.status(200).json(registrations);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const updateRegistrationStatus = async (req, res) => {
+  const { registrationId } = req.params;
+  const { action } = req.body;
+
+  console.log(`Received action: ${action} for registrationId: ${registrationId}`);
+
+  try {
+    const updatedRegistration = await Registration.findByIdAndUpdate(
+      registrationId,
+      { status: action },
+      { new: true }
+    );
+    if (!updatedRegistration) {
+      return res.status(404).json({ error: 'Registration not found' });
+    }
+    console.log('Updated registration:', updatedRegistration);
+    res.json(updatedRegistration);
+  } catch (error) {
+    console.error('Error updating registration status:', error);
+    res.status(500).json({ error: 'Failed to update registration status' });
+  }
+};
+
+
 export const cancelEvent = async (req, res) => {
   try {
     const registration = await Registration.findByIdAndDelete(req.params.id);
@@ -98,6 +136,38 @@ export const cancelEvent = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const markAttendance = async (req, res) => {
+  const { registrationId } = req.params;
+  const { attended } = req.body; // Expecting boolean value for attendance
+
+  try {
+    const updatedRegistration = await Registration.findByIdAndUpdate(
+      registrationId,
+      { attended },
+      { new: true }
+    );
+    if (!updatedRegistration) {
+      return res.status(404).json({ error: 'Registration not found' });
+    }
+    res.status(200).json(updatedRegistration);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getAttendanceForEvent = async (req, res) => {
+  const { eventId } = req.params;
+
+  try {
+    const registrations = await Registration.find({ eventId }).exec();
+    res.status(200).json(registrations);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+
 
 
 

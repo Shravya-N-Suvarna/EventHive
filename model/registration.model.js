@@ -26,6 +26,19 @@ const registrationSchema = new mongoose.Schema({
     ref: 'Event',
     required: true,
   },
+  registrationDate: { 
+    type: Date, 
+    default: Date.now 
+  },
+  status: { 
+    type: String, 
+    enum: ['pending', 'accepted', 'rejected'],
+    default: 'pending' 
+  },
+  attended: { 
+    type: Boolean, 
+    default: false 
+  },
 });
 
 const Registration = mongoose.model('Registration', registrationSchema);
