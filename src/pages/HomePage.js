@@ -85,7 +85,7 @@ const HomePage = () => {
   return (
     <div>
       {/* Navbar */}
-      <header className="bg-zinc-900 text-white py-4">
+      <header className="bg-gray-900 text-white py-4">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <div className="text-2xl font-bold">
             <Link to="/">EventHive</Link>
@@ -160,7 +160,7 @@ const HomePage = () => {
                 </>
               )}
               {!authUser && (
-                <Link to="" className="block bg-red-500 px-4 py-2 rounded" onClick={handleLogin}>Login</Link>
+                <button className="block bg-red-500 px-4 py-2 rounded" onClick={handleLogin}>Login</button>
               )}
             </nav>
           </div>

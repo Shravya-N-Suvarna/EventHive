@@ -1,4 +1,3 @@
-// RegistrationModal.js
 import React, { useState } from 'react';
 
 const RegistrationModal = ({ isOpen, onClose, onSubmit }) => {
@@ -18,8 +17,8 @@ const RegistrationModal = ({ isOpen, onClose, onSubmit }) => {
 
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg">
-        <h2 className="text-xl mb-4">Register for Event</h2>
+      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h2 className="text-3xl text-center font-semibold mb-10">Register for Event</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2">Name</label>
@@ -28,19 +27,9 @@ const RegistrationModal = ({ isOpen, onClose, onSubmit }) => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-3 border border-gray-300 rounded-md"
             />
           </div>
-          {/* <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
-          </div> */}
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2">Email</label>
             <input
@@ -48,7 +37,7 @@ const RegistrationModal = ({ isOpen, onClose, onSubmit }) => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-3 border border-gray-300 rounded-md"
             />
           </div>
           <div className="mb-4">
@@ -58,7 +47,7 @@ const RegistrationModal = ({ isOpen, onClose, onSubmit }) => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-3 border border-gray-300 rounded-md"
             />
           </div>
           <div className="mb-4">
@@ -68,12 +57,12 @@ const RegistrationModal = ({ isOpen, onClose, onSubmit }) => {
               name="address"
               value={formData.address}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-3 border border-gray-300 rounded-md"
             />
           </div>
           <div className="flex justify-end">
-            <button type="button" onClick={onClose} className="mr-4 p-2 rounded-md bg-gray-500 text-white">Cancel</button>
-            <button type="submit" className="p-2 rounded-md bg-blue-500 text-white">Submit</button>
+            <button type="button" onClick={onClose} className="mr-4 p-2 rounded-md bg-gray-500 text-white hover:bg-gray-600">Cancel</button>
+            <button type="submit" className="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-600">Submit</button>
           </div>
         </form>
       </div>

@@ -294,7 +294,7 @@ const ManageEvents = () => {
               <h3 className="text-lg font-semibold mb-2">Events</h3>
               <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
                 {sortedEvents.map(event => (
-                  <li key={event._id} className="bg-gray-200 p-4 rounded-lg shadow-md">
+                  <li key={event._id} className="bg-slate-300 p-4 rounded-lg shadow-md">
                     {event.image && (
                       <img src={event.image} alt={event.title} className="w-full h-32 object-cover rounded-lg mb-2" />
                     )}
